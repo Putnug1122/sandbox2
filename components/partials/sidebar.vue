@@ -9,12 +9,11 @@
           <a href="index.html">St</a>
         </div>
         <ul class="sidebar-menu">
-          <li class="menu-header">Dashboard</li>
-          <li class="menu-header">Starter</li>
-          <li class="active">
-            <a class="nav-link" href="blank.html"
-              ><i class="far fa-square"></i> <span>Blank Page</span></a
-            >
+          <li class="menu-header">Tugas</li>
+          <li class="nav-item" v-for="(menu, i) in listClass" :key="i">
+            <nuxt-link class="nav-link" :to="menu.link"
+              ><i :class="menu.icon"></i> <span>{{ menu.name }}</span>
+            </nuxt-link>
           </li>
         </ul>
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
@@ -29,3 +28,18 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      listClass: [
+        {
+          name: "Tugas",
+          icon: "fas fa-code",
+          link: "/buku"
+        }
+      ]
+    };
+  }
+};
+</script>
